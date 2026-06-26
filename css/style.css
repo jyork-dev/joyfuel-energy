@@ -1,0 +1,88 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    align-items: center;
+    min-height: 50px;
+    background-color: aliceblue;
+}
+
+li {
+    list-style: none;
+}
+
+#navbar {
+    margin: 0px;
+    padding: 15px;
+    display: flex;
+    background-color: aliceblue;
+}
+.nav-menu {
+    margin: 0px;
+    display: flex;
+    flex-grow: 1;
+    align-self: flex-end;
+}
+.nav-logo {
+    border-radius: 50%;
+}
+.nav-item {
+    font-size: large;
+    display: inline-block;
+    margin: auto;
+}
+
+.nav-logo {
+    height: 80px;
+    width: 80px;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+#nav1:hover {
+    color: red
+}
+
+#nav2:hover {
+    color: orange;
+}
+
+#nav3:hover {
+    color:blue;
+}
+
+#nav4:hover {
+    color: green;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.drink-list {
+    margin: 15px;
+    border-radius: 25px;
+    border: 2px solid lightblue;
+}
+

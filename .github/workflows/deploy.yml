@@ -36,4 +36,4 @@ jobs:
 
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4# This is a basic workflow to help you get started with Actions
+        uses: actions/deploy-pages@v4

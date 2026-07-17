@@ -1,51 +1,71 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JoyFuel Events</title>
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
-</head>
-<body>
-  <header class="header">
-    <div id="navbar">
-      <img class="nav-logo" src="images/Logo.jpg" alt="JoyFuel logo" />
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" />
-        </svg>
-      </button>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="index.html">About</a></li>
-        <li class="nav-item"><a href="drinks.html">Drinks</a></li>
-        <li class="nav-item"><a href="events.html" class="active">Events</a></li>
-        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <section class="page events-page">
-      <div class="page-heading">
-        <h1>Events</h1>
-        <p>Let's make your next event unforgettable. We serve joy in every cup.</p>
-      </div>
-      <div class="event-copy">
-        <p>We bring handcrafted drinks and refreshing experiences to athletic events, weddings, festivals, church gatherings, markets, and private celebrations.</p>
-        <ul>
-          <li>Non-caffeinated and caffeinated options</li>
-          <li>Mobile beverage service with fast setup</li>
-          <li>Friendly, faith-focused service at every event</li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JoyFuel Events</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="navbar">
+        <img class="nav-logo" src="images/Logo.jpg" alt="JoyFuel logo" />
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          type="button"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">About</a></li>
+          <li class="nav-item"><a href="drinks.html">Drinks</a></li>
+          <li class="nav-item">
+            <a href="events.html" class="active">Events</a>
+          </li>
+          <li class="nav-item"><a href="contact.html">Contact Us</a></li>
         </ul>
-        <p>Ready to book? Reach out to reserve your date and build a menu that's full of flavor and fun.</p>
-        <a class="button button-primary" href="contact.html">Book JoyFuels</a>
       </div>
-    </section>
-  </main>
-  <footer>
-    <p>JoyFuel Energy Drinks</p>
-    <p>Fueled By Faith ❤️ Powered By Joy</p>
-    <p><a href="mailto:joyfuelsdrinks@gmail.com">Contact Us</a></p>
-  </footer>
-  <script src="js/app.js"></script>
-</body>
+    </header>
+    <main>
+      <section class="page events-page">
+        <div class="page-heading">
+          <h1 id="upcoming-events">Upcoming Events</h1>
+        </div>
+        <div
+          id="events-list"
+          class="events-list"
+          data-sheet-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLQya65EOYxXtVUkFlLawAVMRZqmGsisB6k00C9dzmCh9_8Qb-JgJsLm_YMCiFXXpwRzempqAcCB6e/pub?gid=0&single=true&output=csv"
+          aria-live="polite"
+        >
+          <p class="events-loading">Loading upcoming events…</p>
+        </div>
+        <div id="events-pagination" class="events-pagination" aria-label="Event pagination"></div>
+        <div class="event-copy">
+          <p>
+            Ready to book? Reach out to reserve your date and build a menu
+            that's full of flavor and fun.
+          </p>
+          <a class="button button-primary" href="contact.html">Book JoyFuels</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>JoyFuel Energy Drinks</p>
+      <p>Fueled By Faith ❤️ Powered By Joy</p>
+      <p><a href="mailto:joyfuelsdrinks@gmail.com">Contact Us</a></p>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
 </html>

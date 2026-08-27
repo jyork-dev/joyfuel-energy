@@ -183,7 +183,7 @@ function normalizeEvent(entry) {
     const title = getFirstValue(entry, ['title', 'event', 'event name', 'name']);
     const dateText = getFirstValue(entry, ['date', 'event date', 'when', 'date/time', 'start date', 'datetime', 'start']);
     const location = getFirstValue(entry, ['location', 'venue', 'place']);
-    const description = getFirstValue(entry, ['description', 'details', 'notes', 'summary']);
+    const description = getFirstValue(entry, ['description', 'details', 'notes', 'summary', 'descriptionless than 150 characters']);
     const link = getFirstValue(entry, ['link', 'url', 'website', 'learn more']);
     const timeText = getFirstValue(entry, ['time', 'event time', 'start time']);
 
@@ -214,7 +214,8 @@ function getFirstValue(entry, aliases) {
 
     const matchingKey = Object.keys(entry).find((key) => {
         const normalizedKey = key.toLowerCase().replace(/[^a-z0-9]/g, '');
-        return normalizedAliases.includes(normalizedKey);
+        return normalizedAliases.includes(normalizedKey)
+            || normalizedAliases.some((alias) => normalizedKey.includes(alias) && normalizedKey.length >= alias.length);
     });
 
     return matchingKey ? entry[matchingKey] : '';

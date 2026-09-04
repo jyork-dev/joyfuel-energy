@@ -159,6 +159,45 @@ footer a:hover {
     flex-direction: column;
 }
 
+.pdf-viewer-shell {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.pdf-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(184, 136, 168, 0.18);
+    box-shadow: 0 18px 55px rgba(66, 47, 66, 0.08);
+}
+
+.pdf-page-canvas {
+    display: block;
+    width: min(100%, 820px);
+    height: auto;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(66, 47, 66, 0.12);
+    border: 1px solid rgba(184, 136, 168, 0.14);
+}
+
+.pdf-download {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.pdf-download a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .about-page {
     padding: 40px 0 80px;
     background: radial-gradient(circle at top left, rgba(255, 238, 228, 0.9), transparent 35%), radial-gradient(circle at bottom right, rgba(248, 220, 230, 0.7), transparent 30%), var(--bg);
@@ -316,7 +355,7 @@ footer a:hover {
 }
 
 .page-heading {
-    padding: 0 10px 34px;
+    padding:  10px 34px;
 }
 
 .page-heading p {
@@ -608,10 +647,6 @@ footer a:hover {
 
     .hero-actions {
         justify-content: center;
-    }
-
-    .page-heading {
-        padding: 0 10px 30px;
     }
 }
 

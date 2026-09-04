@@ -1,45 +1,105 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JoyFuel Drinks</title>
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
-</head>
-<body>
-  <header class="header">
-    <div id="navbar">
-      <img class="nav-logo" src="images/Logo.png" alt="JoyFuel logo" />
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" />
-        </svg>
-      </button>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="index.html">About</a></li>
-        <li class="nav-item"><a href="drinks.html" class="active">Drinks</a></li>
-        <li class="nav-item"><a href="events.html">Events</a></li>
-        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <section class="page drinks-page">
-      <object
-  data="images/Menu.pdf#navbar=0&toolbar=0&view=FitH"
-  type="application/pdf"
-  width="100%"
-  height="700px"
->
-  <p>Your browser does not support PDF viewing. <a href="images/Menu.pdf">Download the menu</a>.</p>
-</object>
-    </section>
-  </main>
-  <footer>
-    <p>JoyFuel Energy Drinks</p>
-    <p>Fueled By Faith ❤️ Powered By Joy</p>
-    <p><a href="mailto:joyfuelsdrinks@gmail.com">Contact Us</a></p>
-  </footer>
-  <script src="js/app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JoyFuel Drinks</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="navbar">
+        <img class="nav-logo" src="images/Logo.png" alt="JoyFuel logo" />
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          type="button"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html">About</a></li>
+          <li class="nav-item">
+            <a href="drinks.html" class="active">Drinks</a>
+          </li>
+          <li class="nav-item"><a href="events.html">Events</a></li>
+          <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section class="page drinks-page">
+        <div class="page-heading">
+          <h1 id="drinks">Our Menu</h1>
+        </div>
+
+        <div class="pdf-viewer-shell">
+          <div id="pdf-viewer" class="pdf-viewer" aria-live="polite"></div>
+        </div>
+
+        <p class="pdf-download">
+          <a href="images/Menu.pdf">Download the menu</a>
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>JoyFuel Energy Drinks</p>
+      <p>Fueled By Faith ❤️ Powered By Joy</p>
+      <p><a href="mailto:joyfuelsdrinks@gmail.com">Contact Us</a></p>
+    </footer>
+    <script src="js/app.js"></script>
+    <script type="module">
+      import * as pdfjsLib from './pdfjs/build/pdf.mjs';
+
+      pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/build/pdf.worker.mjs';
+
+      const pdfContainer = document.getElementById('pdf-viewer');
+      if (pdfContainer) {
+        const loading = document.createElement('p');
+        loading.textContent = 'Loading menu...';
+        pdfContainer.appendChild(loading);
+
+        async function renderPdf() {
+          try {
+            const pdf = await pdfjsLib.getDocument('./images/Menu.pdf').promise;
+            pdfContainer.innerHTML = '';
+
+            for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+              const page = await pdf.getPage(pageNumber);
+              const viewport = page.getViewport({ scale: 1.2 });
+              const canvas = document.createElement('canvas');
+              const context = canvas.getContext('2d');
+
+              canvas.className = 'pdf-page-canvas';
+              canvas.width = viewport.width;
+              canvas.height = viewport.height;
+
+              await page.render({
+                canvasContext: context,
+                viewport
+              }).promise;
+
+              pdfContainer.appendChild(canvas);
+            }
+          } catch (error) {
+            console.error('Unable to render menu PDF', error);
+            pdfContainer.innerHTML = '<p class="events-empty">The menu is temporarily unavailable. Please try again soon or download the PDF directly.</p>';
+          }
+        }
+
+        renderPdf();
+      }
+    </script>
+  </body>
 </html>

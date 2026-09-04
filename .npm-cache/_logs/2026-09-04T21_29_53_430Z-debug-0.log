@@ -1,0 +1,113 @@
+0 verbose cli /Users/justinyork/.nvm/versions/node/v22.11.0/bin/node /Users/justinyork/.nvm/versions/node/v22.11.0/bin/npm
+1 info using npm@11.17.0
+2 info using node@v22.11.0
+3 silly config load:file:/Users/justinyork/.nvm/versions/node/v22.11.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/justinyork/Documents/Projects/JoyFuel/.npmrc
+5 silly config load:file:/Users/justinyork/.npmrc
+6 silly config load:file:/Users/justinyork/.nvm/versions/node/v22.11.0/etc/npmrc
+7 verbose title npm install pdfjs-dist
+8 verbose argv "install" "pdfjs-dist" "--save-dev" "--no-fund" "--no-audit"
+9 verbose logfile logs-max:10 dir:/Users/justinyork/Documents/Projects/JoyFuel/.npm-cache/_logs/2026-09-04T21_29_53_430Z-
+10 verbose logfile /Users/justinyork/Documents/Projects/JoyFuel/.npm-cache/_logs/2026-09-04T21_29_53_430Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 silly idealTree buildDeps
+14 silly fetch manifest pdfjs-dist@*
+15 silly packumentCache full:https://registry.npmjs.org/pdfjs-dist cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/npm 171ms
+17 http fetch GET 200 https://registry.npmjs.org/pdfjs-dist 171ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/pdfjs-dist set size:undefined disposed:false
+19 silly placeDep ROOT pdfjs-dist@5.6.205 OK for: joyfuel@1.0.0 want: *
+20 silly fetch manifest @napi-rs/canvas@^0.1.96
+21 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas cache-miss
+22 silly fetch manifest node-readable-to-web-readable-stream@^0.4.2
+23 silly packumentCache full:https://registry.npmjs.org/node-readable-to-web-readable-stream cache-miss
+24 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas 48ms (cache miss)
+25 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas set size:undefined disposed:false
+26 http fetch GET 200 https://registry.npmjs.org/node-readable-to-web-readable-stream 104ms (cache miss)
+27 silly packumentCache full:https://registry.npmjs.org/node-readable-to-web-readable-stream set size:undefined disposed:false
+28 silly placeDep ROOT @napi-rs/canvas@0.1.100 OK for: pdfjs-dist@5.6.205 want: ^0.1.96
+29 silly placeDep ROOT node-readable-to-web-readable-stream@0.4.2 OK for: pdfjs-dist@5.6.205 want: ^0.4.2
+30 silly fetch manifest @napi-rs/canvas-darwin-x64@0.1.100
+31 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 cache-miss
+32 silly fetch manifest @napi-rs/canvas-darwin-arm64@0.1.100
+33 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 cache-miss
+34 silly fetch manifest @napi-rs/canvas-android-arm64@0.1.100
+35 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 cache-miss
+36 silly fetch manifest @napi-rs/canvas-linux-x64-gnu@0.1.100
+37 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu cache-miss
+38 silly fetch manifest @napi-rs/canvas-linux-x64-musl@0.1.100
+39 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl cache-miss
+40 silly fetch manifest @napi-rs/canvas-win32-x64-msvc@0.1.100
+41 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc cache-miss
+42 silly fetch manifest @napi-rs/canvas-linux-arm64-gnu@0.1.100
+43 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu cache-miss
+44 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 51ms (cache miss)
+45 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 set size:undefined disposed:false
+46 silly fetch manifest @napi-rs/canvas-linux-arm64-musl@0.1.100
+47 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl cache-miss
+48 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 59ms (cache miss)
+49 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 set size:undefined disposed:false
+50 silly fetch manifest @napi-rs/canvas-win32-arm64-msvc@0.1.100
+51 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc cache-miss
+52 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl 44ms (cache miss)
+53 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl set size:undefined disposed:false
+54 silly fetch manifest @napi-rs/canvas-linux-riscv64-gnu@0.1.100
+55 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu cache-miss
+56 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl 97ms (cache miss)
+57 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl set size:undefined disposed:false
+58 silly fetch manifest @napi-rs/canvas-linux-arm-gnueabihf@0.1.100
+59 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf cache-miss
+60 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc 100ms (cache miss)
+61 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc set size:undefined disposed:false
+62 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc 44ms (cache miss)
+63 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc set size:undefined disposed:false
+64 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu 106ms (cache miss)
+65 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu set size:undefined disposed:false
+66 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu 110ms (cache miss)
+67 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu set size:undefined disposed:false
+68 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 113ms (cache miss)
+69 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 set size:undefined disposed:false
+70 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu 46ms (cache miss)
+71 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu set size:undefined disposed:false
+72 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf 50ms (cache miss)
+73 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf set size:undefined disposed:false
+74 silly placeDep ROOT @napi-rs/canvas-android-arm64@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+75 silly placeDep ROOT @napi-rs/canvas-darwin-arm64@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+76 silly placeDep ROOT @napi-rs/canvas-darwin-x64@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+77 silly placeDep ROOT @napi-rs/canvas-linux-arm-gnueabihf@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+78 silly placeDep ROOT @napi-rs/canvas-linux-arm64-gnu@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+79 silly placeDep ROOT @napi-rs/canvas-linux-arm64-musl@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+80 silly placeDep ROOT @napi-rs/canvas-linux-riscv64-gnu@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+81 silly placeDep ROOT @napi-rs/canvas-linux-x64-gnu@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+82 silly placeDep ROOT @napi-rs/canvas-linux-x64-musl@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+83 silly placeDep ROOT @napi-rs/canvas-win32-arm64-msvc@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+84 silly placeDep ROOT @napi-rs/canvas-win32-x64-msvc@0.1.100 OK for: @napi-rs/canvas@0.1.100 want: 0.1.100
+85 silly reify moves {}
+86 http cache @napi-rs/canvas-darwin-arm64@https://registry.npmjs.org/@napi-rs/canvas-darwin-arm64/-/canvas-darwin-arm64-0.1.100.tgz 0ms (cache hit)
+87 http cache @napi-rs/canvas@https://registry.npmjs.org/@napi-rs/canvas/-/canvas-0.1.100.tgz 0ms (cache hit)
+88 http cache pdfjs-dist@https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.6.205.tgz 0ms (cache hit)
+89 http cache node-readable-to-web-readable-stream@https://registry.npmjs.org/node-readable-to-web-readable-stream/-/node-readable-to-web-readable-stream-0.4.2.tgz 0ms (cache hit)
+90 silly tarball no local data for @napi-rs/canvas-darwin-arm64@https://registry.npmjs.org/@napi-rs/canvas-darwin-arm64/-/canvas-darwin-arm64-0.1.100.tgz. Extracting by manifest.
+91 silly tarball no local data for @napi-rs/canvas@https://registry.npmjs.org/@napi-rs/canvas/-/canvas-0.1.100.tgz. Extracting by manifest.
+92 silly tarball no local data for pdfjs-dist@https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.6.205.tgz. Extracting by manifest.
+93 silly tarball no local data for node-readable-to-web-readable-stream@https://registry.npmjs.org/node-readable-to-web-readable-stream/-/node-readable-to-web-readable-stream-0.4.2.tgz. Extracting by manifest.
+94 http fetch GET 200 https://registry.npmjs.org/node-readable-to-web-readable-stream/-/node-readable-to-web-readable-stream-0.4.2.tgz 39ms (cache miss)
+95 http fetch GET 200 https://registry.npmjs.org/@napi-rs/canvas/-/canvas-0.1.100.tgz 45ms (cache miss)
+96 http fetch GET 200 https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-5.6.205.tgz 362ms (cache miss)
+97 http fetch GET 200 https://registry.npmjs.org/@napi-rs/canvas-darwin-arm64/-/canvas-darwin-arm64-0.1.100.tgz 635ms (cache miss)
+98 silly ADD node_modules/@napi-rs/canvas-darwin-arm64
+99 silly ADD node_modules/node-readable-to-web-readable-stream
+100 silly ADD node_modules/@napi-rs/canvas
+101 silly ADD node_modules/pdfjs-dist
+102 verbose cwd /Users/justinyork/Documents/Projects/JoyFuel
+103 verbose os Darwin 25.5.0
+104 verbose node v22.11.0
+105 verbose npm  v11.17.0
+106 notice
+106 notice New [33mminor[39m version of npm available! [33m11.17.0[39m -> [34m11.19.1[39m
+106 notice Changelog: [34mhttps://github.com/npm/cli/releases/tag/v11.19.1[39m
+106 notice To update run: [4mnpm install -g npm@11.19.1[24m
+106 notice  { force: true, [Symbol(proc-log.meta)]: true }
+107 verbose exit 0
+108 info ok

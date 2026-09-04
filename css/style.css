@@ -651,9 +651,6 @@ footer a:hover {
 }
 
 @media (max-width: 720px) {
-    .nav-logo {
-        display: none;
-    }
 
     .nav-toggle {
         display: inline-flex;

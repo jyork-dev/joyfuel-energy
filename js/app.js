@@ -213,7 +213,9 @@ function getFirstValue(entry, aliases) {
 
     const matchingKey = Object.keys(entry).find((key) => {
         const normalizedKey = key.toLowerCase().replace(/[^a-z0-9]/g, '');
-        return normalizedAliases.includes(normalizedKey);
+        return normalizedAliases.some((alias) => {
+            return normalizedKey === alias || normalizedKey.includes(alias) || alias.includes(normalizedKey);
+        });
     });
 
     return matchingKey ? entry[matchingKey] : '';

@@ -191,12 +191,11 @@ function normalizeEvent(entry) {
         return null;
     }
 
-    const parsedDate = new Date(dateText);
-    if (Number.isNaN(parsedDate.getTime())) {
+    const parsedDate = parseEventDate(dateText);
+    if (!parsedDate) {
         return null;
     }
 
-    parsedDate.setHours(12, 0, 0, 0);
     const dateLabel = timeText ? `${formatDate(parsedDate)} • ${timeText}` : formatDate(parsedDate);
 
     return {
@@ -218,6 +217,31 @@ function getFirstValue(entry, aliases) {
     });
 
     return matchingKey ? entry[matchingKey] : '';
+}
+
+function parseEventDate(dateText) {
+    if (!dateText) {
+        return null;
+    }
+
+    const text = String(dateText).trim();
+    const isoDateMatch = text.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s].*)?$/i);
+
+    if (isoDateMatch) {
+        const year = Number(isoDateMatch[1]);
+        const month = Number(isoDateMatch[2]);
+        const day = Number(isoDateMatch[3]);
+        const localDate = new Date(year, month - 1, day, 12, 0, 0);
+        return Number.isNaN(localDate.getTime()) ? null : localDate;
+    }
+
+    const parsedDate = new Date(text);
+    if (Number.isNaN(parsedDate.getTime())) {
+        return null;
+    }
+
+    parsedDate.setHours(12, 0, 0, 0);
+    return parsedDate;
 }
 
 function formatDate(date) {

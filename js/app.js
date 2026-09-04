@@ -179,6 +179,26 @@ function parseCsv(text) {
     return rows;
 }
 
+function parseEventDate(dateText) {
+    const trimmed = String(dateText || '').trim();
+    if (!trimmed) {
+        return null;
+    }
+
+    const isoMatch = trimmed.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (isoMatch) {
+        const [, year, month, day] = isoMatch;
+        return new Date(Number(year), Number(month) - 1, Number(day), 12, 0, 0, 0);
+    }
+
+    const parsed = new Date(trimmed);
+    if (Number.isNaN(parsed.getTime())) {
+        return null;
+    }
+
+    return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate(), 12, 0, 0, 0);
+}
+
 function normalizeEvent(entry) {
     const title = getFirstValue(entry, ['title', 'event', 'event name', 'name']);
     const dateText = getFirstValue(entry, ['date', 'event date', 'when', 'date/time', 'start date', 'datetime', 'start']);
@@ -191,12 +211,11 @@ function normalizeEvent(entry) {
         return null;
     }
 
-    const parsedDate = new Date(dateText);
-    if (Number.isNaN(parsedDate.getTime())) {
+    const parsedDate = parseEventDate(dateText);
+    if (!parsedDate || Number.isNaN(parsedDate.getTime())) {
         return null;
     }
 
-    parsedDate.setHours(12, 0, 0, 0);
     const dateLabel = timeText ? `${formatDate(parsedDate)} • ${timeText}` : formatDate(parsedDate);
 
     return {

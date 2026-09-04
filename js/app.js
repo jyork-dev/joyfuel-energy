@@ -179,31 +179,11 @@ function parseCsv(text) {
     return rows;
 }
 
-function parseEventDate(dateText) {
-    const trimmed = String(dateText || '').trim();
-    if (!trimmed) {
-        return null;
-    }
-
-    const isoMatch = trimmed.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-    if (isoMatch) {
-        const [, year, month, day] = isoMatch;
-        return new Date(Number(year), Number(month) - 1, Number(day), 12, 0, 0, 0);
-    }
-
-    const parsed = new Date(trimmed);
-    if (Number.isNaN(parsed.getTime())) {
-        return null;
-    }
-
-    return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate(), 12, 0, 0, 0);
-}
-
 function normalizeEvent(entry) {
     const title = getFirstValue(entry, ['title', 'event', 'event name', 'name']);
     const dateText = getFirstValue(entry, ['date', 'event date', 'when', 'date/time', 'start date', 'datetime', 'start']);
     const location = getFirstValue(entry, ['location', 'venue', 'place']);
-    const description = getFirstValue(entry, ['description', 'details', 'notes', 'summary', 'descriptionless than 150 characters']);
+    const description = getFirstValue(entry, ['description', 'details', 'notes', 'summary']);
     const link = getFirstValue(entry, ['link', 'url', 'website', 'learn more']);
     const timeText = getFirstValue(entry, ['time', 'event time', 'start time']);
 
@@ -211,11 +191,12 @@ function normalizeEvent(entry) {
         return null;
     }
 
-    const parsedDate = parseEventDate(dateText);
-    if (!parsedDate || Number.isNaN(parsedDate.getTime())) {
+    const parsedDate = new Date(dateText);
+    if (Number.isNaN(parsedDate.getTime())) {
         return null;
     }
 
+    parsedDate.setHours(12, 0, 0, 0);
     const dateLabel = timeText ? `${formatDate(parsedDate)} • ${timeText}` : formatDate(parsedDate);
 
     return {
@@ -233,8 +214,7 @@ function getFirstValue(entry, aliases) {
 
     const matchingKey = Object.keys(entry).find((key) => {
         const normalizedKey = key.toLowerCase().replace(/[^a-z0-9]/g, '');
-        return normalizedAliases.includes(normalizedKey)
-            || normalizedAliases.some((alias) => normalizedKey.includes(alias) && normalizedKey.length >= alias.length);
+        return normalizedAliases.includes(normalizedKey);
     });
 
     return matchingKey ? entry[matchingKey] : '';
